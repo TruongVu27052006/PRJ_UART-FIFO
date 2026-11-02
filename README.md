@@ -1,27 +1,21 @@
-A robust, highly configurable UART (Universal Asynchronous Receiver-Transmitter) IP with integrated FWFT FIFOs and automated loopback capabilities, implemented in SystemVerilog.
+📌 Các tính năng chính
+Kiến trúc lõi: Thiết kế RTL dạng module bao gồm các khối độc lập: Khối Phát (uart_tx), Khối Thu (uart_rx), và Khối Tạo Tốc độ Baud (baud_gen).
 
----
+Bộ đệm dữ liệu: Tích hợp các bộ đệm FIFO FWFT (First-Word Fall-Through) với độ trễ bằng không (zero-latency), giúp luồng dữ liệu RX/TX truyền phát đạt hiệu suất cao mà không gặp phải hiện tượng thắt cổ chai về băng thông (throughput).
 
-### 📌 Features
+Chế độ tự động Loopback: Được tích hợp ở mức phần cứng ngay trong module Top với cơ chế bắt tay (handshake) liền mạch (en_transfer = ~rx_empty & ~tx_full) cho phép kiểm tra phản hồi (echo testing) tức thì.
 
-*   **Core Architecture:** Modular RTL design featuring independent Transmitter (`uart_tx`), Receiver (`uart_rx`), and Baud Rate Generator (`baud_gen`) blocks.
-*   **Data Buffering:** Incorporates zero-latency FWFT (First-Word Fall-Through) FIFOs for highly efficient RX/TX data streaming without throughput bottlenecks.
-*   **Auto-Loopback Mode:** Hardware-level integration in the Top module with a seamless handshake mechanism (`en_transfer = ~rx_empty & ~tx_full`) for instant echo testing.
-*   **Highly Configurable:** Fully parameterized `DATA_WIDTH`, oversampling baud ticks (`BAUDTICK`), and FIFO depth (`ADDR_WIDTH`) for flexible system integration.
-*   **Verification:** Comprehensive SystemVerilog testbench (`tb_top_module.sv`) running in Questa/ModelSim, utilizing a Python-generated Golden Model (`golden_vectors.hex`) for automated self-checking and burst-read scenarios.
+Khả năng cấu hình cao: Tham số hóa hoàn toàn độ rộng dữ liệu (DATA_WIDTH), số xung baud lấy mẫu (BAUDTICK), và độ sâu của bộ đệm FIFO (ADDR_WIDTH), giúp tích hợp vào hệ thống một cách linh hoạt.
 
----
+Kiểm tra xác minh (Verification): Cung cấp testbench SystemVerilog toàn diện (tb_top_module.sv) chạy trên Questa/ModelSim, sử dụng Mô hình Vàng (Golden Model) được tạo bằng Python (golden_vectors.hex) phục vụ cho quá trình tự động kiểm tra (self-checking) và các kịch bản đọc chùm (burst-read).
 
-### 📁 Repository Structure
+📁 Cấu trúc thư mục
+SRC/ : Chứa mã nguồn SystemVerilog RTL (top_module.sv, uart_rx.sv, uart_tx.sv, baud_gen.sv, fifo.sv) và môi trường Testbench (tb_top_module.sv, golden_vectors.hex).
 
-*   `SRC/` : SystemVerilog RTL source codes (`top_module.sv`, `uart_rx.sv`, `uart_tx.sv`, `baud_gen.sv`, `fifo.sv`) and Testbench environment (`tb_top_module.sv`, `golden_vectors.hex`).
-*   `REPORT/` : Comprehensive project documentation, architectural block diagrams, and waveform results.
+REPORT/ : Chứa tài liệu dự án chi tiết, sơ đồ khối kiến trúc và các kết quả dạng sóng (waveform).
 
----
-
-### 📖 Documentation
-
-Detailed specifications, parameter configurations, and simulation verification reports are available in the [REPORT/](REPORT/) directory.
+📖 Tài liệu
+Các đặc tả kỹ thuật chi tiết, cấu hình tham số và báo cáo kết quả mô phỏng (simulation verification) đều có sẵn trong thư mục REPORT/.
 
 # PROJECT UART
 
