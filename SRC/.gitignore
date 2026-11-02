@@ -1,0 +1,120 @@
+# ==============================================================================
+# .gitignore chuẩn cho C / C++ (kèm công cụ Build & Hệ thống Mô phỏng Phần cứng)
+# ==============================================================================
+
+# --------------------------------------------------
+# 1. C/C++ Compiled Binaries & Object Files
+# --------------------------------------------------
+*.o
+*.obj
+*.ko
+*.slo
+*.lo
+*.elf
+*.gch
+*.pch
+
+# Thư viện tĩnh và động (Libraries)
+*.lib
+*.a
+*.la
+*.lai
+*.so
+*.so.*
+*.dylib
+*.dll
+
+# File thực thi (Executables)
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+!golden_vectors.hex
+
+# --------------------------------------------------
+# 2. Build Directories & Build Systems (CMake, Make, Ninja)
+# --------------------------------------------------
+build/
+Build/
+bin/
+Bin/
+obj/
+Obj/
+out/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.ninja
+.ninja_*
+
+# --------------------------------------------------
+# 3. Debug & Profiling Files
+# --------------------------------------------------
+*.dSYM/
+*.su
+*.idb
+*.pdb
+*.ilk
+*.exp
+*.map
+*.coverage
+*.gcno
+*.gcda
+*.gcov
+
+# --------------------------------------------------
+# 4. IDEs & Editors (Visual Studio, VS Code, CLion)
+# --------------------------------------------------
+# Visual Studio
+.vs/
+*.sln.docstates
+*.user
+*.userosv
+*.suo
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# CLion / JetBrains
+.idea/
+cmake-build-*/
+
+# --------------------------------------------------
+# 5. ModelSim / QuestaSim / EDA Simulation Files
+# --------------------------------------------------
+work/
+transcript
+vsim.wlf
+*.wlf
+sim.vcd
+*.vcd
+*.fsdb
+*.vpd
+final.cr.mti
+
+# --------------------------------------------------
+# 6. Python (cho Golden Model / Testbench)
+# --------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+
+# --------------------------------------------------
+# 7. OS & Office Temporary Files
+# --------------------------------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+~$*.docx
+~$*.xlsx
+~$*.pptx
